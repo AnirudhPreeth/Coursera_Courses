@@ -332,6 +332,16 @@ print(not today == "Tuesday")
 # false that today is not Tuesday. More succinctly, "not False" means 
 # True."
 
+'''
+The ability of a program to alter its execution sequence is called branching.
+Indented block code. 
+The body of the if block will only execute when the condition evaluates to true; otherwise, it is skipped.
+
+'''
+def hint_username(username):
+    if len(username) <3:
+        print("Invalid username. Must be at least 3 characters long.")
+
 
 
 
