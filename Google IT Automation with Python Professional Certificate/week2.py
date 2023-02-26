@@ -336,13 +336,213 @@ print(not today == "Tuesday")
 The ability of a program to alter its execution sequence is called branching.
 Indented block code. 
 The body of the if block will only execute when the condition evaluates to true; otherwise, it is skipped.
+Return a value if condition if it is met. 
 
+We can use the concept of branching to have our code alter its execution sequence depending on the values of variables. 
+We can use an if statement to evaluate a comparison. 
+We start with the if keyword, followed by our comparison. 
+We end the line with a colon. The body of the if statement is then indented to the right. 
+If the comparison is True, the code inside the if body is executed. 
+If the comparison evaluates to False, then the code block is skipped and will not be run.
+
+So how come we have these two return statements, one below the other, without an else statement? 
+The trick is that when a return statement is executed, the function exits so that the code that follows doesn't get executed.
+
+elif statement. 
 '''
 def hint_username(username):
     if len(username) <3:
         print("Invalid username. Must be at least 3 characters long.")
 
+def hint_username(username):
+    if len(username) <3:
+        print("Invalid username. Must be at least 3 characters long.")
+    else:
+        print("Valid Username.")
+        
+def is_positive(number):
+  if number > 0:
+    return True
+  else:
+    return False
 
+#The else statement is very useful, but we don't always need it.
+def is_even(number):
+    if number %2 == 0:
+        return True
+    return False
 
+def hint_username(username):
+    if len(username) <3:
+        print("Invalid username. Must be at least 3 characters long.")
+    else:
+        if len(username) > 15:
+            print("Invalid username. Must be at most 15 characters long.")
+        else:
+            print("Valid Username.")
 
+def hint_username(username):
+    if len(username) <3:
+        print("Invalid username. Must be at least 3 characters long.")
+    elif len(username) > 15:
+        print("Invalid username. Must be at most 15 characters long.")
+    else:
+        print("Valid Username.")
+        
+'''
+Comparison operators with numerical values
+Comparison expressions return a Boolean result (True or False). 
+x == y        If x is equal to y, return True. Else, return False.
+x != y         If x is not equal to y, return True. Else, return False.
+x < y          If x is less than y, return True. Else, return False.
+x <= y        If x is less than or equal to y, return True. Else, return False.
+x > y          If x is greater than y, return True. Else, return False.
+x >= y        If x is greater or equal to y, return True. Else, return False.
+
+Comparison operators with strings
+Comparison expressions with strings also return a Boolean result (True or False).
+"x" == "y"  If the words are the same, return True. Else, return False.
+"x" != "y"   If the words are not the same, return True. Else, return False.
+When used with strings, the following comparison expressions will alphabetize the strings.
+"x" < "y"   	If string "x"  has a smaller Unicode value than string "y", return True.  Else, return False.
+"x" <= "y" 	If the Unicode value for string "x" is smaller than or equal to the Unicode value of string "y", return True. Else, return False.
+"x" > "y"    	If string "x" has a larger Unicode value than string "y", return True. Else, return False.
+"x" >= "y"  	If the Unicode value for string "x" is greater than or equal to the Unicode value of string "y", return True. Else, return False.
+
+Logical operators are used to combine comparison expressions and also return Boolean results (True or False).
+
+if condition1:
+    action1
+elif condition2:
+    action2
+else:
+    action3
+'''
+
+# The value of 10*4 (40) is greater than 14+23 (37), therefore this 
+# comparison expression will return the Boolean value of True.
+print(10*4 > 14+23) # Should print True
+# The letter "t" has a Unicode value of 116 and the letter "s" has a
+# Unicode value of 115. Since 116 is not less than 115, the 
+# comparison of "tall" < "short" (or 116 < 115) is False. 
+print("tall" < "short")  # Should print False
+
+# This function accepts one variable as a parameter
+def translate_error_code(error_code):
+# The if-elif-else block assesses the value of the variable
+# passed to the function as a parameter. The if statement uses 
+# the equality operator == to test the value of the variable.
+# This test returns a Boolean (True/False) result.
+    if error_code == "401 Unauthorized":
+# If the comparison above returns True, then the indented 
+# line(s) inside the if-statement will run. In this case, the
+# action is to assign a string to the translation variable.
+# The remainder of the if-elif-else block will not run.
+# The Python interpreter will skip to the next line outside of 
+# the if-elif-else block. In this case, the next line is the 
+# return value statement.  
+        translation = "Server received an unauthenticated request"
+# If the initial if-statement returns a False result, then the
+# first elif-statement will run a different test on the value
+# of the variable.
+    elif error_code == "404 Not Found":
+# If the first elif-statement returns a True result, then the
+# indented line(s) inside the first elif-statement will run. 
+# After this line, the remainder of the if-elif-else block will
+# not run. The Python interpreter will skip to the next line
+# outside of the if-elif-else block. 
+        translation = "Requested web page not found on server"
+ # If both the initial if-statement and the first elif-statement 
+# return a False result, then the second elif-statement will
+# run.
+    elif error_code == "408 Request Timeout":
+# If the second elif-statement returns a True result, then the
+# indented line(s) inside the second elif-statement will run. 
+# After this line, the remainder of the if-elif-else block will
+# not run. The Python interpreter will skip to the next line
+# outside of the if-elif-else block. 
+        translation = "Server request to close unused connection"
+# If the conditional tests above do not produce a True result
+# then the else-statement will run. 
+    else:
+        translation = "Unknown error code"
+# The if-elif-else block ends.
+# The next line outside of the if-elif-else block will run
+# after exiting the block. In this case, the next line returns
+# the output from the if-elif-else block.
+    return translation
+# The print() function allows us to display the output of the
+# function. To call a function in a print statement, the syntax
+# is print(name_of_function(parameter))
+print(translate_error_code("404 Not Found"))
+# Expected output:
+# Requested web page not found on server
+# Sets value of the "number" variable
+number = 25
+
+# The "number" variable will first be compared to 5. Since it is 
+# False that "number" is not less than or equal to 5, the expression indented 
+# under this line will be ignored. 
+if number <= 5: 
+   print("The number is 5 or smaller.")
+# Next, the "number" variable will be compared to 33. Since it is 
+# False that "number" is equal to 33, the expression indented under 
+# this line will be ignored. 
+elif number == 33:
+   print("The number is 33.")
+# Then, the "number" variable will be compared to 32 and 6. Since it 
+# is True that 25 is less than 32 and greater than 6, the Python 
+# interpreter will print "The number is less than 32 and/or greater
+# than 6." Then, it will exit the if-elif-else statement and the remainder 
+# of the if-elif-else statement will be ignored.
+elif number < 32 and number >= 6:
+   print("The number is less than 32 and greater than 6.")
+ 
+else:
+   print("The number is " + str(number))
+# Expected output is: 
+# The number is less than 32 and greater than 6.
+
+# This function rounds a variable number up to the nearest 10x value
+def round_up(number):
+  x = 10
+# The floor division operator will calculate the integer value of
+# "number" divided by x: 35 // 10 will return the integer 3.
+  whole_number = number // x
+# The modulo operator will calculate the remainder value of "number"
+# divided by x: 35 % 10 will return the remainder value 5.
+  remainder = number % x
+# If the remainder is greater than 0: 
+  if remainder >= 5: 
+# Return x multiplied by the (whole_number+1) to round up
+    return x*(whole_number+1)
+# Else, return x multiplied by the whole_number to round down
+  return x*whole_number
+# Calls the function with the parameter value of 35.
+print(round_up(35)) # Should print 40
+
+'''
+If a filesystem has a block size of 4096 bytes, this means that a file comprised of only one byte will still use 4096 bytes of storage. 
+A file made up of 4097 bytes will use 4096*2=8192 bytes of storage. 
+Knowing this, can you fill in the gaps in the calculate_storage function below, which calculates the total number of bytes needed to...
+...store a file of a given size?
+
+def calculate_storage(filesize):
+    block_size = 4096
+    # Use floor division to calculate how many blocks are fully occupied
+    full_blocks = filesize/4096
+    # Use the modulo operator to check whether there's any remainder
+    partial_block_remainder = filesize%4096
+    # Depending on whether there's a remainder or not, return
+    # the total number of bytes required to allocate enough blocks
+    # to store your data.
+    if partial_block_remainder > 0:
+        return 4096*(full_blocks+1)
+    return full_blocks*4096
+
+print(calculate_storage(1))    # Should be 4096
+print(calculate_storage(4096)) # Should be 4096
+print(calculate_storage(4097)) # Should be 8192
+print(calculate_storage(6000)) # Should be 8192
+'''
 
