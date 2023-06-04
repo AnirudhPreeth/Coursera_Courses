@@ -546,3 +546,4 @@ print(calculate_storage(4097)) # Should be 8192
 print(calculate_storage(6000)) # Should be 8192
 '''
 
+#That's the end of this section. 
